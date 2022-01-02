@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Changes You Find This Version Or Laravel
+
+- public_root set to public_html
+- default storage root to public_html/storage
+- use file system driver to public for url 
+  http:://app.com/storage
+- use file system driver to upload for url
+- http:://app.com/upload
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
