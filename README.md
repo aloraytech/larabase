@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Changes You Find This Version Or Laravel
+## Changes You Find In This Version Or Laravel
 
 - public_root set to public_html
 - default storage root to public_html/storage
