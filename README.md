@@ -9,7 +9,7 @@
 
 ## Changes You Find In This Version Or Laravel
 
-- public_root set to public_html
+- public_path set to public_html
 - default storage root to public_html/storage
 - use file system driver to public for url 
   http:://app.com/storage
