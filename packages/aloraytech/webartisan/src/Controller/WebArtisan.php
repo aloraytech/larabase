@@ -3,7 +3,9 @@
 namespace Aloraytech\Webartisan\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 class WebArtisan
 {
@@ -11,6 +13,15 @@ class WebArtisan
     private array $availableClearCommand = ['cache','route','config','view'];
     private array $availableMakeCommand = ['controller','model','factory','seeder','migration','provider','notification'];
     private array $availableComposerCommand = ['install','update','install_no_dev','update_no_dev','dump_autoload'];
+
+    public function __construct()
+    {
+        if(!Auth::check())
+        {
+            redirect('/');
+        }
+    }
+
 
     /**
      * @param Request $request
@@ -90,14 +101,17 @@ class WebArtisan
     }
 
 
+
     public function composer(string $command)
     {
 
         if(in_array($command,$this->availableComposerCommand))
         {
-            return '<h3> Composer Install </h3>';
+//            chdir(base_path());
+//            shell_exec('composer '.$command);
+            return '<h3> Composer Functionality will Be updated soon</h3>';
         }else{
-            return response()->redirectToRoute('web.artisan.help');
+            return redirect()->route('web.artisan.help');
         }
 
 
