@@ -4,7 +4,6 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
-
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
@@ -19,6 +18,14 @@ define('LARAVEL_START', microtime(true));
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
 }
+
+/*
+ / ---------------------------------------------------------------------
+ / Auto Installer
+ */
+require_once __DIR__.'/../bootstrap/installer.php';
+
+
 
 /*
 |--------------------------------------------------------------------------

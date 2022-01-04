@@ -1,0 +1,30 @@
+{
+    "name": "aloraytech/webartisan",
+    "description": "This will help to use artisan cli command from web request",
+    "type": "library",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Krishanu",
+            "email": "36711704+aloraytech@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aloraytech\\Webartisan\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aloraytech\\Webartisan\\WebArtisanServiceProvider"
+            ]
+
+        }
+    }
+}
