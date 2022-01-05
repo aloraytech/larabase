@@ -22,19 +22,18 @@ class Installer
         {
             chdir($this->rootPath);
             $this->setMessage('Installation Started');
-            if(php_sapi_name() === 'cli')
+            if(PHP_SAPI === 'cli')
             {
                 $argc = shell_exec('composer install');
-                $this->setMessage(['Installation On Process...'],['Please Do not close this window']);
+                $this->setMessage(['Installation On Process...','Please Do not close this window']);
             }else{
-                $this->setMessage(['Installation On Process...'],['Please Do not close this window']);
+                $this->setMessage(['Installation On Process...','Please Do not close this window']);
                 $argc = shell_exec('composer install');
-                sleep(30);
+                sleep(10);
                 $this->setMessage($argc);
                 $argc = shell_exec('php artisan migrate:fresh --seed');
 
             }
-            sleep(30);
             $this->setMessage($argc);
         }
 
@@ -44,7 +43,6 @@ class Installer
             if(PHP_SAPI === 'cli')
             {
                 $this->setMessage('Please Read Docs For Know All Latest Changes Of This Framework..');
-                $this->setMessage(['You can now start your application by hitting '],['php artisan serve']);
             }else{
                 echo '<a style="
                         background-color: #4CAF50;
@@ -61,7 +59,22 @@ class Installer
 
 
         }else{
-            $this->setMessage('Please wait for 120 seconds and reload this page');
+            $this->setMessage('Please wait for few seconds..');
+            sleep(10);
+            if(!$this->hasAutoload())
+            {
+                echo '<a style="
+                        background-color: #4CAF50;
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;"
+                     href="/">Manual Composer Install Require</a>';
+            }
+            die();
         }
 
     }
@@ -97,7 +110,7 @@ class Installer
             {
                 if(PHP_SAPI === 'cli')
                 {
-                    echo "\e[92m $message \n\e[0m";
+                    echo "\e[92m $msg \n\e[0m";
                 }else{
                     ob_start();
                     echo "<h3 style='color: ".$color."'>".$msg ."</h3>";

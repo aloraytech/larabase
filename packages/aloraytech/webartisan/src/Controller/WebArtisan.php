@@ -12,7 +12,7 @@ class WebArtisan
 
     private array $availableClearCommand = ['cache','route','config','view'];
     private array $availableMakeCommand = ['controller','model','factory','seeder','migration','provider','notification'];
-    private array $availableComposerCommand = ['install','update','install_no_dev','update_no_dev','dump_autoload'];
+    private array $availableComposerCommand = ['require','update','remove','version','install_no_dev','update_no_dev','dump_autoload'];
 
     public function __construct()
     {
@@ -101,14 +101,43 @@ class WebArtisan
     }
 
 
-
-    public function composer(string $command)
+    /**
+     * @param Request $request
+     * @param string $command
+     * @param string $subject
+     * @return string
+     */
+    public function composer(Request $request,string $command,string $subject='')
     {
 
         if(in_array($command,$this->availableComposerCommand))
         {
-//            chdir(base_path());
-//            shell_exec('composer '.$command);
+            chdir(base_path());
+            switch ($command) {
+                case "require":
+                    $argc = shell_exec("composer require $subject");
+                    break;
+                case "update":
+                    $argc = shell_exec("composer update");
+                    break;
+                case "install_no_dev":
+                    $argc = shell_exec("composer install --no-dev");
+                    break;
+                case "update_no_dev":
+                    $argc = shell_exec("composer update --no-dev");
+                    break;
+                case "dump_autoload":
+                    $argc = shell_exec("composer dump-autoload");
+                    break;
+                case "remove":
+                    $argc = shell_exec("composer remove $subject");
+                    break;
+                case "version":
+                    $argc = shell_exec("composer --version");
+                    break;
+                default:
+                    $argc = shell_exec("composer --version");
+            }
             return '<h3> Composer Functionality will Be updated soon</h3>';
         }else{
             return redirect()->route('web.artisan.help');
