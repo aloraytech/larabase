@@ -1,3 +1,25 @@
+![alt text](https://via.placeholder.com/1050x300/3c40434d/FF0000?text=Larabase)
+
+
+## About Larabase
+Larabase is a web application framework, in more detail, customize laravel framework
+
+Benefits 
+- `public_html` directory based host ready.
+- Auto installed `composer` dependencies.
+- Web-Artisan: Help you run `cli/artisan commands` from web route 
+
+
+## Changes You Find In This Version Or Larabase
+
+- FileSystem : Upload Files & Images with\
+1.`local`,`public`,`s3` as default\
+2.`public_all` for store file in *public_html/storage*  and serve via  *domain.com/storage/file.jpg*\
+3.`upload`  for store file in *public_html/storage* and serve via *domain.com/upload/file.jpg*\
+[For More Info](https://github.com/aloraytech/larabase)
+## Customized By
+[Aloray Technologies](https://github.com/aloraytech)
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -7,14 +29,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Changes You Find In This Version Or Laravel
-
-- public_path set to public_html
-- default storage root to public_html/storage
-- use file system driver to public for url 
-  http:://app.com/storage
-- use file system driver to upload for url
-- http:://app.com/upload
 
 ## About Laravel
 
